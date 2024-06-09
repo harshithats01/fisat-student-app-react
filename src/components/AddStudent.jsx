@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 
-function AddStudent() {
+const AddStudent=()=> {
+    const [data,setData]=useState(
+        {
+            "fname":" ",
+            "lname":" ",
+            "college":" ",
+            "dob":" ",
+            "course":" ",
+            "mob":" ",
+            "email":" ",
+            "address":" "
+
+        }
+    )
+    const inputHandler =(event)=>{
+        setData({...data,[event.target.name]:event.target.value})
+    }
+    const readValue =()=>{
+        console.log(data)
+    }
     return (
         <div>
             <Navbar />
@@ -37,32 +56,32 @@ function AddStudent() {
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                             <label htmlFor="" className="form-label">First Name:</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" name='fname' value={data.fname} onChange={inputHandler} />
 
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                             <label htmlFor="" className="form-label">Last Name:</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" name='lname' value={data.lname} onChange={inputHandler} />
 
                         </div>
                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                             <label htmlFor="" className="form-label">College:</label>
-                            <textarea name="" id="" className="form-control"></textarea>
+                            <textarea name="college" id="" className="form-control" value={data.college} onChange={inputHandler} />
 
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                             <label htmlFor="" className="form-label">DoB:</label>
-                            <input type="date" className="form-control" />
+                            <input type="date" className="form-control" name='dob' value={data.dob} onChange={inputHandler} />
 
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                             <label htmlFor="" className="form-label">Course:</label>
 
-                            <select name="" id="" className="form-control">
+                            <select name="course" id="" className="form-control" value={data.course} onChange={inputHandler}>
                                 <option value="MCA">MCA</option>
                                 <option value="MBA">MBA</option>
                                 <option value="B.Tech">B.Tech</option>
@@ -73,24 +92,24 @@ function AddStudent() {
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                             <label htmlFor="" className="form-label">Mobile no:</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" name='mob' value={data.mob} onChange={inputHandler} />
 
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                             <label htmlFor="" className="form-label">Email.id:</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" name='email' value={data.email} onChange={inputHandler} />
 
                         </div>
                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                             <label htmlFor="" className="form-label">Address:</label>
-                            <textarea name="" id="" className="form-control"></textarea>
+                            <textarea name="address" id="" className="form-control" value={data.address} onChange={inputHandler}></textarea>
 
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-                            <button className="btn btn-success">SUBMIT</button>
+                            <button className="btn btn-success" onClick={readValue}>SUBMIT</button>
 
                         </div>
                     </div>
